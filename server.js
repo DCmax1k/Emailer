@@ -43,7 +43,6 @@ app.post('/portfolio/contact', (req, res) => {
   };
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) return console.error(err);
-    console.log('email send');
   });
   res.redirect('https://www.dylancaldwell.tk/thanks');
 });
