@@ -45,7 +45,7 @@ app.post('/portfolio/contact', (req, res) => {
     if (err) return console.error(err);
     console.log('email send');
   });
-  res.redirect('https://www.dylancaldwell.tk');
+  res.redirect('https://www.dylancaldwell.tk/thanks');
 });
 
 app.listen(process.env.PORT || 3000);
