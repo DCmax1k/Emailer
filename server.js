@@ -32,7 +32,7 @@ app.post('/portfolio/contact', (req, res) => {
         <br />
         <b>Email:</b>
         <br />
-        ${req.body.email}
+        ${JSON.stringify(req.body.email)}
         <hr />
         <br />
         <b>Message:</b>
