@@ -21,10 +21,11 @@ const transporter = nodemailer.createTransport({
 app.post('/portfolio/contact', (req, res) => {
   // Develope return value
   let messageArr = JSON.stringify(req.body.message).split('');
-  let messagePop = messageArr.pop();
+  let messageTrim = messageArr.trim();
+  let messagePop = messageTrim.pop();
   let messageShift = messagePop.shift();
   let messageJoin = messageShift.join('');
-  let newMessage = messageJoin.replace(/\\r\\n/gi, '<br />');
+  let newMessage = messageJoin.replace(/\\r\\n/g, '<br />');
   // Mail Options
   const mailOptions = {
     from: 'Contact Form',
