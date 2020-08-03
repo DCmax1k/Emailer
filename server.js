@@ -5,13 +5,7 @@ const nodemailer = require('nodemailer');
 
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
-let newMessageArr = req.body.message
-  .replace(/\\r\\n/gi, '<br />')
-  .trim()
-  .split('');
-newMessageArr.pop();
-newMessageArr.shift();
-let newMessage = newMessageArr.join('');
+
 // Routes
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -25,6 +19,14 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/portfolio/contact', (req, res) => {
+  // Adding return value
+  let newMessageArr = req.body.message
+    .replace(/\\r\\n/gi, '<br />')
+    .trim()
+    .split('');
+  newMessageArr.pop();
+  newMessageArr.shift();
+  let newMessage = newMessageArr.join('');
   // Mail Options
   const mailOptions = {
     from: 'Contact Form',
