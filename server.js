@@ -5,7 +5,13 @@ const nodemailer = require('nodemailer');
 
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
-
+let newMessageArr = req.body.message
+  .replace(/\\r\\n/gi, '<br />')
+  .trim()
+  .split('');
+newMessageArr.pop();
+newMessageArr.shift();
+let newMessage = newMessageArr.join('');
 // Routes
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -38,7 +44,7 @@ app.post('/portfolio/contact', (req, res) => {
         <br />
         <b>Message:</b>
         <br />
-        ${req.body.message}
+        ${newMessage}
         <hr />
         `,
   };
