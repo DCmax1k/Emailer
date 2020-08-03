@@ -19,6 +19,13 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/portfolio/contact', (req, res) => {
+  // Develope return value
+  let messageArr = JSON.stringify(req.body.message).split('');
+  let messagePop = messageArr.pop();
+  let messageShift = messagePop.shift();
+  let messageJoin = messageShift.join('');
+  let newMessage = messageJoin.replace(/\\r\\n/gi, '<br />');
+  // Mail Options
   const mailOptions = {
     from: 'Contact Form',
     to: 'dylan.caldwell35@gmail.com',
@@ -37,7 +44,7 @@ app.post('/portfolio/contact', (req, res) => {
         <br />
         <b>Message:</b>
         <br />
-        ${JSON.stringify(req.body.message)}
+        ${newMessage}
         <hr />
         `,
   };
