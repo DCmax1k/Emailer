@@ -20,7 +20,7 @@ const transporter = nodemailer.createTransport({
 
 app.post('/portfolio/contact', (req, res) => {
   // Adding return value
-  let newMessageArr = req.body.message
+  let newMessageArr = JSON.stringify(req.body.message)
     .replace(/\\r\\n/gi, '<br />')
     .trim()
     .split('');
