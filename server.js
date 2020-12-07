@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'notekeeperapi@gmail.com',
+    user: 'noreplydevapp@gmail.com',
     pass: process.env.EMAIL_PASS,
   },
   tls: {
