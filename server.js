@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 const transporter = nodemailer.createTransport({
   service: 'gmail',
-  secure: false,
   auth: {
     user: 'noreplydevapp@gmail.com',
     pass: process.env.EMAIL_PASS,
