@@ -18,6 +18,10 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 
+app.get('/', (req, res) => {
+  res.send('Emailer is currently working');
+})
+
 app.post('/portfolio/contact', async (req, res) => {
   try {
 // Adding return value
@@ -75,4 +79,6 @@ app.post('/portfolio/contact', async (req, res) => {
   
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000, () => {
+  console.log('App is listening on port ' + (process.env.PORT != undefined ? process.env.PORT : 3000));
+});
